@@ -1,0 +1,573 @@
+/* Reset CSS */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* H1 para seções */
+.nothing { 
+    width: 0px;
+    height: 0px;
+    visibility: hidden;
+}
+
+/* Tags de padronização */
+label {
+    font-family: Tahoma, Verdana;
+    font-size: 16px;
+    color: white;
+}
+
+h1, .menu_itens, .menu_itens_loja {
+    font-family: "Segoe UI Light", Verdana;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+h2 { 
+    font-family: Tahoma, Verdana;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+a {
+    width: 80px;
+    text-align: center;
+    height: 35px;
+    text-decoration: none;
+    background-color: #ff3333;
+    color: #fff;
+}
+
+a:hover {
+    background-color: #950505;
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'segoe ui';
+}
+
+.img {
+    width: 100%;
+    height: 300px;
+}
+
+/* Classes padronização */
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.txt_center {
+    text-align: center;
+}
+
+.txt_slogan {
+    font-weight: bold;
+    font-family: 'segoe ui';
+    text-align: center;
+}
+
+.conteudo {
+    width: 1200px;
+    height: inherit;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.detalhes_produto {
+    width: 80px;
+    background-color: #b33b3b;
+    float:right; 
+    padding-top: 10px; 
+    margin-right: 10px; 
+    margin-bottom: 10px;
+}
+
+.detalhes_produto:hover {
+    transition: 0.2s;
+    box-shadow: 0.5px 0.5px 2.5px;
+    cursor: pointer;
+}
+
+.produto_imagem {
+    width: 300px;
+    height: 150px;
+    margin-left: -20px;
+}
+
+/* CSS para desktop */
+@media screen and (min-device-width: 1024px) {
+    header {
+        width: 100%;
+        height: 80px;
+        background-color: #b33b3b;
+        position: fixed;
+        z-index: 99;
+    }
+    
+    header .conteudo {
+        background-color: #b33b3b;
+    }
+    
+    #area_logo {
+        width: 130px;
+        height: inherit;
+        margin-right: 100px;
+        float: left;
+    }
+
+    #logo {
+        width: 130px;
+        height: 130px;
+        background-color: none;
+    }
+    
+    #area_menu {
+        width: 430px;
+        height: inherit;
+        margin-right: 130px;
+        float: left;
+        padding-top: 10px;
+        box-sizing: border-box;
+    }
+
+    #menu, #menu_loja {
+        width: inherit;
+        height: inherit;
+    }
+    
+    .menu_itens, .menu_itens_loja {
+        width: 132px;
+        height: 30px;
+        float: left;
+        list-style: none;
+        margin-right: 10px;
+        background-color:  #b33b3b;
+        transition: 0.3s;
+        margin-bottom: 1px;
+        color: white;
+        font-style: 'segoe ui';
+        font-size: 15px;
+        box-sizing: border-box;
+        padding-top: 5px;
+    }
+    
+    .menu_itens:hover, .menu_itens_loja:hover {
+        background-color: #660000;
+        cursor: pointer;
+        transition: 0.6s;
+    }
+
+    #sistema_interno:hover, #mobile:hover {
+        background-color: lightgray;
+        cursor: pointer;
+        transition: 0.6s;
+    }
+    
+    #area_login {
+        width: 410px;
+        height: inherit;
+        float: left;
+        box-sizing: border-box;
+        padding-top: 13px;
+    }
+    
+    #area_login label {
+        margin-right: 50px;
+    }
+    
+    #lgn, #pass {
+        width: 170px;
+        height: inherit;
+        float: left;
+    }
+    
+    #pass {
+        width: 230px;
+    }
+    
+    .txt {
+        width: 150px;
+        height: 20px;
+    }
+    
+    #pass .txt {
+        margin-right: 10px;
+    }
+    
+    #btn {
+        width: 50px;
+        height: 24px;
+    }
+    
+    #complete_menu_area {
+        width: 200px;
+        height: 330px;
+        position: absolute;
+    }
+    
+    #slider {
+        width: 100%;
+        height: 400px;
+        box-sizing: border-box;
+        padding-top: 75px;
+    }
+    
+    #loja {
+        width: 100%;
+        height: 680px;
+    }
+    
+    #area_menu_loja {
+        width: 200px;
+        min-height: 100%;
+        height: auto;
+        box-sizing: border-box;
+        padding-top: 10px;
+        float: left;
+    }
+    
+    .menu_itens_loja {
+        width: inherit;
+        height: 40px;
+        float: none;
+        margin: 0px;
+        box-sizing: border-box;
+        padding-top: 4px;  
+        border-bottom: black solid 1px;
+    }
+    
+    .submenu {
+        width: 200px;
+        min-height: 40px;
+        height: auto;
+        background-color: azure;
+        margin-left: 200px;
+        margin-top: -24px;
+        position: relative;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s;
+    }
+    
+    .menu_itens_loja:hover > .submenu {
+        visibility: visible;
+        opacity: 1;
+        transition: 0.6s;
+    }
+    
+    #produtos {
+        width: 1000px;
+        min-height: 350px;
+        height: auto;
+        float: left;
+        box-sizing: border-box;
+        padding-top: 25px;
+        padding-left: 25px;
+        overflow: hidden;
+    }
+    
+    .produto, .produto_promocoes {
+        width: 300px;
+        height: 300px;
+        float: left;
+        margin-right: 25px;
+        margin-bottom: 25px;
+    }
+    
+    .informacoes_produto, .informacoes_produto_promocoes {
+        width: inherit;
+        height: 150px;
+    }
+
+    .line-through {
+        text-decoration: line-through 
+    }
+    
+    #redes_sociais {
+        width: 150px;
+        height: 350px;
+        position: fixed;
+        margin-left: 1210px;
+        margin-top: -150px;
+        padding-left: 30px;
+        padding-top: 34px;
+        padding-right: 30px;
+        box-sizing: border-box; 
+    }
+    
+    footer {
+        width: 100%;
+        height: 70px;
+        background-color: #171717;
+        overflow: hidden;
+    }
+    
+    footer .conteudo {
+        background-color: #171717;
+    }
+
+    #endereco_footer {
+        width: 600px;
+        height: 70px;
+        color: white;
+        float: left;
+        margin-left: 100px;
+        padding-top: 10px;
+        color: white;
+    }
+    
+    #administracao, #download_mobile {
+        width: 200px;
+        height: inherit;
+        box-sizing: border-box;
+        padding-top: 10px;
+        padding-left: 20px; 
+        float: left;
+    }
+    
+    #sistema_interno, #mobile {
+        width: 160px;
+        height: 50px;
+        background-color: white;
+        box-sizing: border-box;
+        padding-top: 10px;
+        transition: 0.3s;
+        float: left;
+    }
+
+    .icon {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 6px;
+    }
+
+    .img_redes {
+        width: 90px;
+        height: 90px;
+    }
+
+    /* Produtos do Mês */
+    #area_produto_mes, #area_produto_promocoes,
+    #area_sobre, #area_curiosidades {
+        width: 1200px;
+        min-height: 867px;
+        height: auto;
+        padding-top: 100px;
+        box-sizing: border-box;
+
+    }
+
+    #area_mapa {
+        width: 1200px;
+        min-height: 600px;
+        height: auto;
+        padding-top: 150px;
+        box-sizing: border-box;
+        padding-left: 310px;
+    }
+
+    #endereco {
+        width: 1200px;
+        min-height: 300px;
+        height: auto;
+        padding-top: 150px;
+        box-sizing: border-box;
+    }
+
+    .produto_mes, .produto, .produto_promocoes {
+        width: 300px;
+        min-height: 318px;
+        height: auto;
+        overflow: hidden;
+        box-shadow: 0.5px 0.5px 2.5px;
+    }
+
+    .descricao_produto_mes, .informacoes_produto, .descricao_produto_promocoes {
+        font-family: 'Segoe UI';
+        margin-left: 20px;
+        margin-top: 10px;
+        background-color: white;
+    }
+
+    #info_produto_mes {
+        width: 700px;
+        min-height: 100px;
+        height: auto;
+        margin-top: 70px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* Sobre Empresa */
+    .info_sobre, .info_curiosidades {
+        width: inherit;
+        min-height: 400px;
+        height: auto;
+        padding-top: 40px;
+        box-sizing: border-box;
+        padding-left: 40px;
+        border-bottom: solid 1px black;
+    }
+
+    .foto_sobre, .foto_curiosidades img {
+        max-width: 400px;
+        max-height: 310px;
+        float: left;
+        margin-right: 40px;
+    }
+
+    .descricao_sobre, .descricao_curiosidades {
+        width: 650px;
+        min-height: 310px;
+        height: auto;
+        background-color: #fff;
+        float: left;
+        margin-right: 40px;
+        overflow: hidden;
+    }
+
+    .titulo_sobre {
+        font-family: 'segoe ui';
+        font-size: 20px;
+    }
+
+    .texto_sobre, .texto_curiosidades {
+        font-family: 'segoe ui light';
+        font-size: 16px;
+    }
+
+    /* Contato */
+
+    #area_contato {
+        width: 1200px;
+        min-height: 867px;
+        height: auto;
+        padding-top: 100px;
+        box-sizing: border-box;
+
+    }
+
+    #contato {
+        width: 600px;
+        min-height: 700px;
+        height: auto;
+        border-radius: 8px;
+        margin-top: 30px;
+        border: solid 1px black;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+
+    .opcoes {
+        width: inherit;
+        height: 80px;
+        margin-top: 5px;
+        margin-left: 13px;
+    }
+
+    
+    
+    .infos {
+        width: 100px;
+        height: inherit;
+        float: left;
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 28px;
+        font-family: 'segoe ui';
+        background-color: #950505;
+        color: white;
+    }
+
+    .infos:hover {
+        cursor: pointer;
+    }
+    
+    #info_nascimento {
+        width: 100px;
+        height: inherit;
+        float: left;
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 12px;
+        font-family: 'segoe ui';
+        background-color: #950505;
+    }
+    
+    #info_mensagem {
+        width: 100px;
+        height: inherit;
+        float: left;
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 45px;
+        font-family: 'segoe ui';
+        background-color: #950505;
+        margin-left: 13px;
+        margin-top: 5px;
+    }
+
+    #info_mensagem:hover {
+        cursor: pointer;
+    }
+    
+    #opcoes_mensagem {
+        width: inherit;
+        height: 110px;
+    }
+    
+    .entradas {
+        width: inherit;
+        height: inherit;
+        box-sizing: border-box;
+        padding-top: 22px;
+        padding-left: 110px;
+        color: black;
+    }
+    
+    #entrada_mensagem {
+        width: inherit;
+        height: inherit;
+        box-sizing: border-box;
+        padding-top: 5px;
+        padding-left: 120px;
+    }
+    
+    .txt_entrada {
+        width: 300px;
+    }
+    
+    textarea {
+        resize: none;
+    }
+    
+    #btn_salvar {
+        width: 400px;
+        height: 30px;
+        box-sizing: border-box;
+        margin-left: 100px;
+        margin-top: 30px;
+    }
+
+    .label_radio {
+        font-size: 20px;
+        margin-right: 40px;
+        color: black;
+    }
+}
+
+/* CSS para mobile */
+@media screen and (max-device-width: 720px) {
+    
+}

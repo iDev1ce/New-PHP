@@ -1,0 +1,609 @@
+/* Import FONT */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body  {
+    font-family: 'Roboto', 'segoe ui light', Arial;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased !important;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stantardzation */
+.content {
+    width: 900px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: 100px;
+    background: #000;
+}
+
+#header-container {
+    width: 900px;
+    height: 100%;
+
+    margin: 0 auto;
+}
+
+.header-logo {
+    width: 150px;
+    height: 100px;
+    float: left;
+}
+
+header #header-container h1 {
+    color: white;
+    letter-spacing: 3px;
+    float: left;
+    margin-top: 25px;
+    margin-left: 40px;
+}
+
+
+/* Menu */
+#menu {
+    width: 100%;
+    height: 150px;
+    background: #999;
+}
+
+#menu .content {
+    width: 950px;
+    height: inherit;
+    margin: 0 auto;
+    padding-left: 50px;
+}
+
+#menu .content ul {
+    width: 600px;
+    list-style: none;
+    height: 100%;
+    padding-top: 2px;
+    float: left;
+}
+
+#menu-greeting {
+    float: left;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+#menu .content ul li {
+    width: 150px;
+    height: 145px;
+    background: #999;
+    margin-right: 50px;
+    float: left;
+}
+
+#menu .content ul li:hover {
+    background: rgb(206, 206, 206);
+}
+
+#menu .content ul li img {
+    width: 87px;
+    height: 87px;
+    cursor: pointer;
+    margin-left: 25px;
+}
+
+#menu .content ul li a {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+}
+
+#menu .content #menu-greeting div {
+    margin-top: 10px;
+    margin-left: 80px;
+    font-size: 16px;
+}
+
+#menu .content #menu-greeting div a {
+    width: 70px !important;
+    height: 30px;
+    text-decoration: none;
+    color: black;
+}
+
+#menu .content #menu-greeting div a:hover {
+    text-decoration: none;
+    color: rgb(206, 206, 206);
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    height: 70px;
+    background: #000;   
+    margin-top: auto;
+}
+
+footer .content {
+    width: 800px;
+    height: 70px;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    padding-top: 35px;
+}
+
+
+
+/***************** Niveis *********************/
+#container {
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    padding-top: 50px;
+}
+
+#nivel-content {
+    width: 800px;
+    min-height: 30px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#nivel-content #btn-cadastro input {
+    height: 30px;
+    margin-top: 15px;
+}
+
+#txt_nivel {
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+#nivel-options {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#nivel-options label {
+    margin-right: 20px;
+}
+
+#btn_cadastro {
+    width: 100%;
+}
+
+#nivel-config {
+    margin: 0 auto;
+    float: left;
+}
+
+/****** CMS Standarnization ******/
+
+#cms-principal {
+    padding-top: 25px;
+    padding-bottom: 35px;
+}
+
+/* Administração de niveis e usuarios e Fale conosco */
+#cms-principal #contato-container form select, #cms-principal #usuarios-container form select {
+    width: 500px;
+    padding: 4px;
+    margin-right: 15px;
+    font-size: 16px;
+    border-radius: 2px;
+}
+
+#cms-principal #contato-container form input[type="submit"] {
+    width: 100px;
+    margin-right: 10px;
+}
+
+#cms-principal #contato-container table,
+#cms-principal #usuarios-container table,
+#cms-principal #filiais-container table,
+#cms-principal #sobre-container table,
+#cms-principal #conteudo-container table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;      
+}
+
+#cms-principal #filiais-container form {
+    width: auto;
+    margin-bottom: 230px !important;
+}
+
+#cms-principal #sobre-container form {
+    width: auto;
+    margin-bottom: 230px !important;
+}
+
+#cms-principal #contato-container table tr, #cms-principal #usuarios-container table tr,
+#cms-principal #filiais-container table tr,
+#cms-principal #sobre-container table tr,
+#cms-principal #conteudo-container table tr {
+    border: 1px solid #999;
+}
+
+#cms-principal #contato-container table #tbl-header, #cms-principal #usuarios-container table #tbl-header,
+#cms-principal #filiais-container table #tbl-header,
+#cms-principal #sobre-container table #tbl-header,
+#cms-principal #conteudo-container table #tbl-header {
+    border: 1px solid #171717 !important;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#cms-principal #contato-container table td, #cms-principal #usuarios-container table td, 
+#cms-principal #filiais-container table td,
+#cms-principal #sobre-container table td,
+#cms-principal #conteudo-container table td {
+    width: 180px;
+    padding: 10px;
+    letter-spacing: 0.25px;
+}
+
+#cms-principal #contato-container table td a img, #cms-principal #usuarios-container table td a img,
+#cms-principal #contato-container table td a img,
+#cms-principal #conteudo-container table td a img {
+    width: 15px;
+    vertical-align: middle;
+    margin-top: -1px;
+    cursor: pointer;
+}
+
+.conteudo {
+    width: 800px;
+    min-height: 100px;
+    height: auto;
+}
+
+/* Modal */
+#modal-container {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+#modal-container #modal {
+    width: 655px;
+    margin: 0 auto;
+    margin-top: 10vh;
+}
+
+#modal-container #modal div {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    align-items: flex-end;
+    padding: 3px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-container #modal div label {
+    width: 16px;
+}
+
+#modal-container #modal #dados-modal table {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0px;
+    background: #fff;
+    border: none;
+}
+
+#modal-container #modal #dados-modal table td {
+    padding: 15px;
+    text-align: center;
+}
+
+#modal-container #modal #dados-modal table td img {
+    max-width: 560px;
+}
+
+#frm_filtro {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+/* ----> Administração de Usuários e Conteúdo */
+#cms-principal #usuarios-container h2,
+#cms-principal #conteudo-container h2 {
+    font-size: 24px;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+#cms-principal #cms-usuarios-opcoes {
+    width: 100%;
+    min-height: 50px;
+    height: auto;
+    list-style: none;
+    margin-top: 100px;
+    text-align: center;
+}
+
+#cms-principal #cms-usuarios-opcoes li {
+    width: 40%;
+    height: 200px;
+    float: left;
+    cursor: pointer;
+}
+
+#cms-principal #cms-usuarios-opcoes li:hover {
+    background: rgb(206, 206, 206);
+}
+
+#cms-usuarios-opcoes li a {
+    width: 100%;
+    height: 100%;
+}
+
+#cms-principal #cms-usuarios-opcoes li a img {
+    width: 150px;
+    height: 150px;
+}
+
+#cms-principal #cms-usuarios-opcoes li a div {
+    margin-top: 10px;
+    font-size: 16px;
+    color: black;
+}
+
+#cms-principal #usuarios-container form,
+#cms-principal #sobre-container form,
+#cms-principal #conteudo-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+#cms-principal #conteudo-container form {
+    align-items: center;
+}
+
+#cms-principal #conteudo-container form div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#cms-principal #usuarios-container form input[type="text"],
+#cms-principal #usuarios-container form input[type="email"],
+#cms-principal #usuarios-container form input[type="password"],
+#cms-principal #conteudo-container form textarea {
+    width: 100%;
+    padding: 4px;
+    font-size: 16px;
+    border: 1px solid #999;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+#cms-principal #conteudo-container form textarea {
+    height: 130px;
+    resize: none;
+}
+
+#cms-principal #conteudo-container form label#thumbnail {
+    width: 500px;
+    margin-right: 30px;
+    margin-top: 3px;
+    margin-bottom: 20px;
+    border: 2px dashed #ddd;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cms-principal #conteudo-container form label#thumbnail input {
+    display: none;
+}
+
+#cms-principal #usuarios-container form div,
+#cms-principal #usuarios-container form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+#cms-principal #usuarios-container form div input 
+#cms-principal #sobre-container form div input {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #999;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-top: -3px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#cms-principal #sobre-container form div textarea#titulo {
+    width: 600px;
+    min-height: 30px;
+    height: auto;
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+#cms-principal #sobre-container form div textarea#texto {
+    width: 600px;
+    min-height: 200px;
+    height: auto;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+#cms-principal #sobre-container form div label img {
+    width: 150px;
+    height: 100px;
+    margin-top: 40px;
+    float: left;
+}
+
+#cms-principal #usuarios-container form div label {
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+#cms-principal #usuarios-container form div label span {
+    margin: 0.5px 10px 0;
+    user-select: none;
+}
+
+#cms-principal #usuarios-container form input[type="submit"],
+#cms-principal #filiais-container form input[type="submit"],
+#cms-principal #sobre-container form input[type="submit"],
+#cms-principal #conteudo-container form input[type="submit"] {
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+}
+
+#cms-principal #filiais-container form input {
+    margin-top: 40px;
+    float: left;
+}
+
+#cms-principal #sobre-container form {
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+
+textarea {
+    resize: none;
+}
+
+
+#cms-principal #sobre-container form input {
+    margin-top: 40px;
+    float: left;
+}
+
+#cms-principal #usuarios-container table .tbl-enable-disable a img {
+    width: auto;
+    max-height: 20px;
+}
+
+#cms-principal #conteudo-container table .tbl-enable-disable a img {
+    width: auto;
+    max-height: 20px;
+}
+
+#cms-principal #conteudo-container table td img.preview {
+    max-height: 50px;
+}
+
+#cms-principal #sobre-container table td img.preview {
+    max-height: 50px;
+}
+
+#cms-principal #usuarios-container form select {
+    width: 100%;
+    padding: 3px;
+    margin-bottom: 15px;
+}
+
+#cms-principal #usuarios-container form img {
+    width: 28px;
+    margin-left: -32px;
+    position: absolute;
+    cursor: pointer;
+}
+
+/* Administração de Conteúdo */
+
+#cms-principal #conteudo-container ul {
+    list-style: none !important;
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+#cms-principal #conteudo-container ul li {
+    width: inherit;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+    box-sizing: border-box;
+    background: #999;
+    border: solid 1px #000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 0px;
+}
+
+#cms-principal #conteudo-container ul li a {
+    margin: 0px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+#cms-principal #conteudo-container ul li img {
+    margin-top: 15px;
+}
