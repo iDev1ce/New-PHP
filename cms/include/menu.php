@@ -4,10 +4,12 @@
 
     if (!isset($_SESSION))
         session_start();
-        
+
+    // Validação de segurança
     if (!isset($_SESSION['username'])) 
         header('location:../');
 
+    // Logout do sistema
     if (isset($_GET['action']) && strtolower($_GET['action']) === 'logout') {
         session_destroy();
         header('location:../');
@@ -24,6 +26,7 @@
             $sql = 'SELECT * FROM niveis WHERE id_nivel=' . $_SESSION['id_nivel'] . ';';
             $select = mysqli_query($conexao, $sql);
 
+            // Resgatar valores da tabela no banco conforme a necessidade
             if ($rsUser = mysqli_fetch_array($select)) {
                 if ($rsUser['adm_conteudo']) { ?>
                     <li>

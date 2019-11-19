@@ -12,7 +12,9 @@
             Frajola's Pizzaria - CMS
         </title>
         
-        <link rel="icon" href="./img/icon.png">
+        <!-- Favicon -->
+        <link rel="icon" href="../img/favicon.png">
+        
         <link href="./css/styles.css" rel="stylesheet" type="text/css">
     </head>
 

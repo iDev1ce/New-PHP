@@ -5,6 +5,7 @@
     $button = 'Cadastrar';
     $conexao = conexaoMySQL();
 
+    // Editar registro no banco
     if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT') {
         $id = $_GET['id'];
 
@@ -31,6 +32,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Pizzaria Frajola - CMS</title>
+
+        
+        <!-- Favicon -->
+        <link rel="icon" href="../img/favicon.png">
+
         <link href="./css/styles.css" rel="stylesheet" type="text/css">
     </head>
     <body>
@@ -48,7 +54,7 @@
 
         <!-- Conteúdo principal -->
         <div id="cms-principal">
-            <div id="conteudo-container" class="content center">
+            <div id="usuarios-container" class="content center">
                 <h1> 
                     <strong> Administração de Usuários </strong>
                 </h1>   
@@ -60,17 +66,14 @@
                 <form name="frm_user" method="POST" action="./db/salvar_usuario.php<?php if (isset($id)) echo('?action=edit&id=' . $id); ?>">
                     <input type="text" name="txt_name" value="<?=@$name?>" placeholder="Nome*" required />
                     <input type="email" name="txt_email" value="<?=@$email?>" placeholder="Email*" required />
-                    <label>
-                        <input type="password" name="txt_password" id="txt_password" placeholder="Senha*" required>
-                        <img src="./img/show.png" id="show-password-img" alt="Mostrar" onclick="showPassword('txt_password', true);" />
-                    </label>
+                    <input type="password" name="txt_password" id="txt_password" placeholder="Senha*" required>
                     <select name="slt_nivel"> 
                         <?php
                         $sql = 'SELECT * FROM niveis;';
                         $select = mysqli_query($conexao, $sql);
 
+                        // Resgatar valores da tabela no banco conforme a necessidade
                         while ($rs_nivel = mysqli_fetch_array($select)) { 
-
                             if ($rs_nivel['status']) { ?>
                                 <option value="<?=$rs_nivel['id_nivel']?>" <?php if ($rs_nivel['id_nivel'] === @$level) echo('selected'); ?>>
                                     <?=$rs_nivel['nome']?>
@@ -95,7 +98,8 @@
                     FROM usuarios INNER JOIN niveis
                     ON usuarios.id_nivel = niveis.id_nivel';
                     $select = mysqli_query($conexao, $sql);
-
+                    
+                    // Resgatar valores da tabela no banco conforme a necessidade
                     while ($rsUser = mysqli_fetch_array($select)) { ?>
                         <tr>
                             <td><?=$rsUser['nome']?></td>

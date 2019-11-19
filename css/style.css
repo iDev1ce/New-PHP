@@ -418,14 +418,15 @@ p {
         border-bottom: solid 1px black;
     }
 
-    .foto_sobre, .foto_curiosidades img {
+    .foto_sobre img, .foto_curiosidades img {
         max-width: 400px;
         max-height: 310px;
         float: left;
         margin-right: 40px;
     }
 
-    .descricao_sobre, .descricao_curiosidades {
+    .descricao_sobre, .descricao_curiosidades
+     {
         width: 650px;
         min-height: 310px;
         height: auto;

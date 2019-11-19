@@ -10,12 +10,14 @@
         return;
     }
 
+    // Deleta registro da filial
     if (isset($_GET['action']) && strtoupper($_GET['action']) === 'DELETE') {
 
         $conexao = conexaoMySQL();
         $id = $_GET['id'];
         $sql = "DELETE FROM filiais WHERE id_filial=" . $id . ";";
 
+        // Envia para execução a tarefa desejada
         if (mysqli_query($conexao, $sql))
             header('location:../filiais.php');
         else

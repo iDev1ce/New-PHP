@@ -5,11 +5,13 @@
     if (!isset($_SESSION))
         session_start();
 
+    // Validação de segurança
     if (!isset($_SESSION['username'])) {
         header('location:../../'); 
         return;
     }
 
+    // Salva registro do nível
     if (isset($_POST['btn_submit'])) {
 
         $name = $_POST['txt_name'];
@@ -19,6 +21,7 @@
         
         $conexao = conexaoMySQL();
 
+        // Faz a edição do nível
         if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT') {
             $sql = "UPDATE niveis 
                     SET nome='".$name."',
@@ -36,8 +39,7 @@
                             1);";
         }
 
-        echo($sql);
-
+        // Envia para execução a tarefa desejada
         if (mysqli_query($conexao, $sql))
             header('location:../niveis.php');
         else

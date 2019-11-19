@@ -5,18 +5,22 @@
     if (!isset($_SESSION))
         session_start();
 
+    // Inclusão do arquivo que faz upload de imagem
     if (!file_exists(include_once('../include/uploads.php')))
         include_once('../include/uploads.php');
 
+    // Validação de segurança
     if (!isset($_SESSION['username'])) {
         header('location:../../'); 
         return;
     }
 
+    // Salva registro da curiosidade
     if (isset($_POST['btn_submit'])) {
 
         $curiosity = addslashes($_POST['txt_curiosity']);
 
+        // Faz a edição das curiosidades
         if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT') {
             if ($_FILES['file_curiosidade']['name'] === '' && $_FILES['file_curiosidade']['size'] === 0) {
                 $sql = "UPDATE curiosidades 
@@ -63,6 +67,7 @@
 
         $conexao = conexaoMySQL();
 
+        // Envia para execução a tarefa desejada
         if (mysqli_query($conexao, $sql)) {
             if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT' && $_FILES['file_curiosidade']['name'] !== '' && $_FILES['file_curiosidade']['size'] !== 0) 
                 unlink('uploads/' . $_GET['image']);  

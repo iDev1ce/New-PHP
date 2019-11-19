@@ -2,11 +2,14 @@
     if (!file_exists(include_once('../db/conexao.php')))
         include_once('../db/conexao.php');
 
+    // Envia o tipo de filtro
     if (isset($_POST['btn_filter'])) {
         $filter = $_POST['slt_filter'];
         header('location:./adm_contato.php?filter=' . $filter);
     
-    } elseif (isset($_POSt['btn_clear_filter']))
+    } 
+    // Limpa o filtro
+    elseif (isset($_POST['btn_clear_filter']))
         header('location:./adm_contato.php');
 ?>
 
@@ -17,7 +20,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>Administração de Contato</title>
+        <title>Pizzaria Frajola - CMS</title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="../img/favicon.png">
 
         <link href="./css/styles.css" rel="stylesheet" type="text/css">
     </head>
@@ -76,6 +82,7 @@
                     </tr>
 
                     <?php
+                    // Faz a filtragem
                     if (isset($_GET['filter'])) {
 
                         if ($_GET['filter'] === 'sugestao') 
@@ -88,6 +95,7 @@
              
                     $select = mysqli_query($conexao, $sql);
 
+                    // Resgatar valores da tabela no banco conforme a necessidade
                     while ($rsContato = mysqli_fetch_array($select)) { ?>
                         <tr>
                             <td><?=$rsContato['nome']?></td>
@@ -102,10 +110,12 @@
                                 ?>
                             </td>
                             <td>
+                                <!-- Chama a função que remove o registro -->
                                 <a href="./db/deletar_contato.php?action=delete&id=<?=$rsContato['id']?>" onclick="return confirm('Deseja realmente excluir esse registro?');">
                                     <img src="./img/remove.png" alt="Remover" title="Remover" />
                                 </a>
 
+                                <!-- Chama a função que visualiza o registro -->
                                 <a href="#" class="handle-modal-view" onclick="showModalData(<?=$rsContato['id']?>);">
                                     <img src="./img/search.png" alt="Visualizar"  title="Visualizar" />
                                 </a>

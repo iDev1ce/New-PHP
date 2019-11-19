@@ -10,6 +10,7 @@
         return;
     }
 
+    // Deleta registro da curiosidade
     if (isset($_GET['action']) && strtoupper($_GET['action']) === 'DELETE') {
 
         $conexao = conexaoMySQL();
@@ -17,6 +18,7 @@
         $image = $_GET["image"];
         $sql = "DELETE FROM curiosidades WHERE id=" . $id . ";";
 
+        // Envia para execução a tarefa desejada
         if (mysqli_query($conexao, $sql)) {
             unlink('uploads/' . $image);  
             header('location:../curiosidades.php');

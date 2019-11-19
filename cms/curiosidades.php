@@ -5,6 +5,7 @@
     $button = 'Cadastrar';
     $conexao = conexaoMySQL();
 
+    // Editar registro no banco
     if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT') {
         $id = $_GET['id'];
 
@@ -32,6 +33,9 @@
         <title>
             Pizzaria Frajola - CMS
         </title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="../img/favicon.png">
         
         <link href="./css/styles.css" rel="stylesheet" type="text/css">
     </head>
@@ -46,7 +50,7 @@
                     </label>
                 </div>
 
-                <div id="modal-data">
+                <div id="dados-modal">
 
                 </div>
             </div>
@@ -77,6 +81,7 @@
 
                 <form name="frm_curiosities" enctype="multipart/form-data" method="POST" action="./db/salvar_curiosidade.php<?php if (isset($id)) echo('?action=edit&id=' . $id . '&image=' . $image); ?>">
                     <div>
+                        <!-- Recebe o preview da imagem -->
                         <label id="thumbnail" style="background-image: url('db/uploads/<?=@$image?>'); border: <?php if (isset($image)) { echo('none'); } ?>;">
                             <input type="file" name="file_curiosidade" id="img-curiosity" accept="image/png, image/jpeg, image/jpg" />
                             <img src="./img/camera.svg" id="camera-icon" alt="Selecione a imagem" style="display: <?php if (isset($image)) { echo('none'); } ?>;" />
@@ -101,6 +106,7 @@
              
                     $select = mysqli_query($conexao, $sql);
 
+                    // Resgatar valores da tabela no banco conforme a necessidade
                     while ($rsCuriosidade = mysqli_fetch_array($select)) { ?>
                         <tr>
                             <td> 
@@ -112,11 +118,14 @@
                             </td>
 
                             <td class="tbl-enable-disable"> <?php
-                                if ($rsCuriosidade['status'])
+                                // Caso o estado estiver ativado, muda o botão para desativar
+                                if ($rsCuriosidade['status']) {
                                     echo('
                                     <a href="./db/status_curiosidade.php?action=disable&id='. $rsCuriosidade['id'] .'">
                                         <img src="./img/on.png" alt="Desabilitar" title="Desabilitar" /> 
                                     </a>');
+                                }
+                                // Caso o estado estiver desativado, muda o botão para ativar
                                 else   
                                     echo('
                                     <a href="./db/status_curiosidade.php?action=enable&id='. $rsCuriosidade['id'] .'">
@@ -125,14 +134,17 @@
                             </td>
 
                             <td>
+                                <!-- Chama a função que edita o registro -->
                                 <a href="./curiosidades.php?action=edit&id=<?=$rsCuriosidade['id']?>">
                                     <img src="./img/edit.png" alt="Editar" title="Editar" />
                                 </a>
 
+                                <!-- Chama a função que remove o registro -->
                                 <a href="./db/deletar_curiosidade.php?action=delete&id=<?=$rsCuriosidade['id']?>&image=<?=$rsCuriosidade['imagem']?>" onclick="return confirm('Deseja realmente excluir esse registro?');">
                                     <img src="./img/remove.png" alt="Remover" title="Remover" />
                                 </a>
 
+                                <!-- Chama a função que visualiza o registro -->
                                 <a href="#" class="handleModalView" onclick="showModalData(<?=$rsCuriosidade['id']?>);">
                                     <img src="./img/search.png" alt="Visualizar"  title="Visualizar" />
                                 </a>
@@ -155,6 +167,7 @@
             var $thumbnail = document.getElementById('thumbnail');
             var $cameraIcon = document.getElementById('camera-icon');
             
+            // Função responsável pelo preview da imagem
             $imagemCuriosidade.addEventListener('change', function(e) {
                 const url = URL.createObjectURL(e.target.files[0]);
 
@@ -163,27 +176,27 @@
                 $cameraIcon.style.display = 'none';
             });
 
-            /* Show modal */
+            /* Mostrar modal */
             $(document).ready(function() {
                 $('.handleModalView').click(function() {
                     $('#modal-container').slideDown(250);
                 })
             });
 
-            /* Hide modal on 'modal-close' click */
+            /* Fechar modal no click */
             $(document).ready(function() {
                 $('#modal-close').click(function() {
                     $('#modal-container').slideUp(100);
                 })
             });
 
-            /* Hide modal on press esc */
+            /* Fechar modal apertando Esc */
             $(document).keyup(function(event) {
                 if (event.key === "Escape") 
                     $("#modal-container").slideUp(100);
             });
 
-            /* Ajax function to show modal data */
+            /* AJAX para mostrar os dados na modal */
             function showModalData(id) {
                 $.ajax({
                     type: 'POST',
@@ -193,7 +206,7 @@
                         id: id
                     }, 
                     success: function(data) {
-                        $('#modal-data').html(data);
+                        $('#dados-modal').html(data);
                     }
                 });
             }

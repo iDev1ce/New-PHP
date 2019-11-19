@@ -5,6 +5,7 @@
     if (!isset($_SESSION))
     session_start();
 
+    // Validação de segurança
     if (!isset($_SESSION['username'])) {
         header('location:../../'); 
         return;
@@ -20,6 +21,9 @@
             Frajola's Pizzaria - CMS
         </title>
         
+        <!-- Favicon -->
+        <link rel="icon" href="../img/favicon.png">
+
         <link href="./css/styles.css" rel="stylesheet" type="text/css">
     </head>
 
@@ -47,21 +51,21 @@
                 <ul id="curiosidades-opcoes">
                     <li>
                         <a href="./curiosidades.php">
-                            <img src="./img/curiosity.png" alt="Curiosidades" />
-                            <strong> Curiosidades </strong>
+                            <img src="./img/curiosidades.png" alt="Curiosidades" />
+                            <label><strong> Curiosidades </strong></label>
                         </a> 
                     </li>   
 
                     <li>
                         <a href="./filiais.php">
-                            <img src="./img/branches.png" alt="Filiais" />
+                            <img src="./img/lojas.png" alt="Filiais" />
                             <strong> Nossas lojas </strong>
                         </a> 
                     </li>  
 
                     <li>
                         <a href="./sobre.php">
-                            <img src="./img/about.jpg" alt="Sobre" />
+                            <img src="./img/sobre.png" alt="Sobre" />
                             <strong> Sobre </strong>
                         </a> 
                     </li>                     

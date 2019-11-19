@@ -149,6 +149,18 @@ footer {
     height: 70px;
     background: #000;   
     margin-top: auto;
+    bottom: 0;
+    margin-top: 150px !important;
+}
+
+footer .content a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#conteudo-container {
+    margin-bottom: -150px;
 }
 
 footer .content {
@@ -238,6 +250,10 @@ footer .content {
     margin-right: 10px;
 }
 
+#cms-principal {
+    margin-bottom: 100px !important;
+}
+
 #cms-principal #contato-container table,
 #cms-principal #usuarios-container table,
 #cms-principal #filiais-container table,
@@ -248,9 +264,13 @@ footer .content {
     border-collapse: collapse;      
 }
 
+#cms-principal #sobre-container table {
+    margin-top: -130px;
+}
+
 #cms-principal #filiais-container form {
     width: auto;
-    margin-bottom: 230px !important;
+    margin-bottom: 70px !important;
 }
 
 #cms-principal #sobre-container form {
@@ -284,9 +304,11 @@ footer .content {
 }
 
 #cms-principal #contato-container table td a img, #cms-principal #usuarios-container table td a img,
+#cms-principal #sobre-container table a img, 
 #cms-principal #contato-container table td a img,
+#cms-principal #filiais-container table td a img, 
 #cms-principal #conteudo-container table td a img {
-    width: 15px;
+    width: 30px;
     vertical-align: middle;
     margin-top: -1px;
     cursor: pointer;
@@ -330,12 +352,14 @@ footer .content {
 
 #modal-container #modal div label {
     width: 16px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 #modal-container #modal #dados-modal table {
     width: 100%;
     height: 100%;
-    border-spacing: 0px;
+    border-spacing: 0px !important;
     background: #fff;
     border: none;
 }
@@ -354,8 +378,12 @@ footer .content {
     margin-bottom: 30px;
 }
 
+table, tbody {
+    border-spacing: 0px;
+}
 
-/* ----> Administração de Usuários e Conteúdo */
+
+/* Administração de Usuários e Conteúdo */
 #cms-principal #usuarios-container h2,
 #cms-principal #conteudo-container h2 {
     font-size: 24px;
@@ -413,11 +441,25 @@ footer .content {
     align-items: center;
 }
 
+#cms-principal #usuarios-container form input[type="text"] {
+    width: 100% !important;
+}
+
 #cms-principal #conteudo-container form div {
     width: 100%;
     display: flex;
     flex-direction: row;
 }
+
+#cms-principal #conteudo-container form div textarea {
+    width: 100%;
+    padding: 4px;
+    font-size: 16px;
+    border: 1px solid #999;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
 
 #cms-principal #usuarios-container form input[type="text"],
 #cms-principal #usuarios-container form input[type="email"],
@@ -511,7 +553,6 @@ footer .content {
 
 #cms-principal #usuarios-container form input[type="submit"],
 #cms-principal #filiais-container form input[type="submit"],
-#cms-principal #sobre-container form input[type="submit"],
 #cms-principal #conteudo-container form input[type="submit"] {
     width: 100%;
     height: 30px;
@@ -519,8 +560,10 @@ footer .content {
 }
 
 #cms-principal #filiais-container form input {
-    margin-top: 40px;
-    float: left;
+    margin-top: 30px;
+    height: 30px;
+    width: 100%;
+    font-size: 20px;
 }
 
 #cms-principal #sobre-container form {
@@ -529,6 +572,10 @@ footer .content {
     margin: 0 auto;
 }
 
+#cms-principal #sobre-container form input {
+    width: 100%;
+    height: 40px;
+}
 
 textarea {
     resize: none;
@@ -536,18 +583,16 @@ textarea {
 
 
 #cms-principal #sobre-container form input {
-    margin-top: 40px;
+    width: 100%;
     float: left;
 }
 
-#cms-principal #usuarios-container table .tbl-enable-disable a img {
+#cms-principal #conteudo-container table .tbl-enable-disable a img,
+#cms-principal #sobre-container table .tbl-enable-disable a img,
+#cms-principal #usuarios-container table .tbl-enable-disable a img, 
+#cms-principal #filiais-container table .tbl-enable-disable a img {
     width: auto;
-    max-height: 20px;
-}
-
-#cms-principal #conteudo-container table .tbl-enable-disable a img {
-    width: auto;
-    max-height: 20px;
+    max-height: 50px;
 }
 
 #cms-principal #conteudo-container table td img.preview {
@@ -601,9 +646,25 @@ textarea {
     display: block;
     width: 100%;
     height: 100%;
+    text-decoration: none;
+    color: black;
 }
 
+#cms-principal #conteudo-container ul li a:hover {
+    background: rgb(206, 206, 206);;
+}
 
 #cms-principal #conteudo-container ul li img {
-    margin-top: 15px;
+    margin-top: 5px;
+    max-width: 35px;
+    margin-right: 15px;
+}
+
+#cms-principal #usuarios-container ul li a {
+    margin: 0px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
 }

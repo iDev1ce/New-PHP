@@ -5,6 +5,7 @@
     $button = 'Cadastrar';
     $conexao = conexaoMySQL();
 
+    // Editar registro no banco
     if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT') {
         $id = $_GET['id'];
         $conexao = conexaoMySQL();
@@ -26,13 +27,16 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <title>Pizzaria Frajola - CMS</title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="../img/favicon.png">
 
         <link href="./css/styles.css" rel="stylesheet" type="text/css">
     </head>
@@ -98,6 +102,7 @@
              
                     $select = mysqli_query($conexao, $sql);
 
+                    // Resgatar valores da tabela no banco conforme a necessidade
                     while ($rsNivel = mysqli_fetch_array($select)) { ?>
                         <tr>
                             <td><?=$rsNivel['nome']?></td>
@@ -124,11 +129,15 @@
                             </td>
 
                             <td class="tbl-enable-disable"> <?php
-                                if ($rsNivel['status'])
+
+                                // Caso o estado estiver ativado, muda o botão para desativar
+                                if ($rsNivel['status']) {
                                     echo('
                                     <a href="./db/status_nivel.php?action=disable&id='. $rsNivel['id_nivel'] .'">
                                         <img src="./img/on.png" alt="Desabilitar" title="Desabilitar" /> 
                                     </a>');
+                                }
+                                // Caso o estado estiver desativado, muda o botão para ativar
                                 else   
                                     echo('
                                     <a href="./db/status_nivel.php?action=enable&id='. $rsNivel['id_nivel'] .'">
@@ -137,10 +146,13 @@
                             </td>
 
                             <td>
+                                
+                                <!-- Chama a função que edita o registro -->
                                 <a href="./niveis.php?action=edit&id=<?=$rsNivel['id_nivel']?>">
                                     <img src="./img/edit.png" alt="Editar" title="Editar" />
                                 </a>
-
+                                
+                                <!-- Chama a função que remove o registro -->
                                 <a href="./db/deletar_nivel.php?action=delete&id=<?=$rsNivel['id_nivel']?>" onclick="return confirm('Deseja realmente excluir esse registro?');">
                                     <img src="./img/remove.png" alt="Remover" title="Remover" />
                                 </a>

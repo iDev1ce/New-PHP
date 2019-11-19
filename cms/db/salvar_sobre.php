@@ -13,11 +13,13 @@
         return;
     }
 
+    // Salva registro do sobre
     if (isset($_POST['btn_submit'])) {
 
         $titulo = $_POST['txt_titulo'];
         $texto = $_POST['txt_texto'];
 
+        // Faz a edição do sobre
         if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT') {
             if ($_FILES['file_sobre']['name'] === '' && $_FILES['file_sobre']['size'] === 0) {
                 $sql = "UPDATE sobre 
@@ -39,7 +41,7 @@
                                 SET titulo='".$titulo."',
                                     texto='".$texto."',
                                     imagem='".$encryptedFilename."'
-                                WHERE id=" . $_GET['id'] . ';';
+                                WHERE id_sobre=" . $_GET['id'] . ';';
             }
         } else {
             if ($_FILES['file_sobre']['name'] === '' && $_FILES['file_sobre']['size'] === 0) {
@@ -68,6 +70,7 @@
 
         $conexao = conexaoMySQL();
 
+        // Envia para execução a tarefa desejada
         if (mysqli_query($conexao, $sql)) {
             if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT' && $_FILES['file_sobre']['name'] !== '' && $_FILES['file_sobre']['size'] !== 0) 
                 unlink('uploads/' . $_GET['image']);  

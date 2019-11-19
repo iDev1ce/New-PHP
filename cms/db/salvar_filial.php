@@ -5,11 +5,13 @@
     if (!isset($_SESSION))
         session_start();
 
+    // Validação de segurança
     if (!isset($_SESSION['username'])) {
         header('location:../../'); 
         return;
     }
 
+    // Salva registro da filial
     if (isset($_POST['btn_submit'])) {
 
         $id = $_GET['id'];
@@ -23,6 +25,7 @@
 
         $conexao = conexaoMySQL();
 
+        // Faz a edição da filial
         if (isset($_GET['action']) && strtoupper($_GET['action']) === 'EDIT') {
             $sql = "UPDATE filiais 
                     SET id_filial=".$id.",
@@ -44,9 +47,8 @@
                             '".$numero."');";
             
         }
-
-        echo($sql);
         
+        // Envia para execução a tarefa desejada
         if (mysqli_query($conexao, $sql))
             header('location:../filiais.php');
         else
