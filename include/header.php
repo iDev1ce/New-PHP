@@ -67,9 +67,9 @@
                         Senha
                     </label>
                     
-                    <input type="text" name="txt_senha" value="" id="txt_senha" class="txt">
+                    <input type="password" name="txt_senha" value="" id="txt_senha" class="txt">
                     
-                    <input type="submit" name="btn_submit" value="ok" id="btn">
+                    <input type="submit" name="btn_submit" value="Logar" id="btn">
                 </div>
             </form>
         </div>
