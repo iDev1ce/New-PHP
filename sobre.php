@@ -1,3 +1,10 @@
+<?php
+    if(!file_exists(include_once('db/conexao.php')))
+        include_once('db/conexao.php');
+
+    $conexao = conexaoMySQL();
+?>
+
 <!DOCTYPE html>
     <html lang="pt-br">
     <head>
@@ -21,57 +28,65 @@
     <!-- Sobre Empresa -->
     <div id="area_sobre" class="center">
 
-        <!-- Conteudos-->
-        <div class="info_sobre">
-            <div class="foto_sobre">
-                <img alt="Pizza" title="Pizza" src="img/pizza_sobre.jpg">
-            </div>
-            <div class="descricao_sobre">
-                <h2 class="titulo_sobre">
-                    PIZZARIA FRAJOLA, UM EXEMPLO A SER SEGUIDO
-                </h2>
+        <?php
+            $sql = "SELECT * from sobre;";
+        
+            $select = mysqli_query($conexao, $sql);
 
-                <p class="texto_sobre">
-                    Não é Crepe, Panqueca, Cone, tampouco Taco. É Pizza Frajola's! Massa Extra Fina e crocante,
-                    a qual é recheada com os mais variados e saborosos ingredientes.
-                    São mais de 70 sabores de Pizzas (salgadas, doces e Light)
-                    a escolha dos clientes.
-                </p>
-                <br>
-                
-                <p class="texto_sobre">
-                    Na Pizzaria Frajola's tudo é pensado para que você tenha a melhor e mais espetacular experiência ao saborear uma Pizza prática, barata, diferente, crocante e muito saborosa. Para isso, somos criteriosos na escolha dos ingredientes e na apresentação de nossas Pizzas, as quais são embaladas individualmente para facilitar a degustação. 
-                </p>
-            </div>
-            
-        </div>
+            $counter = 0;
+
+            while ($rsSobre = mysqli_fetch_array($select)) { 
+                if ($rsSobre['status'] && $counter === 0) {?>
+                    <div class="info_sobre">
+                        <!-- Imagem da sobre -->
+                        <div class="foto_sobre">
+                            <img src="cms/db/uploads/<?=$rsSobre['imagem']?>" class="responsive_img" alt="Pizzaiolo Ricardo">
+                        </div>
+                        
+                        <!-- Texto da sobre -->
+                        <div class="descricao_sobre">
+                            <h2 class="titulo_sobre">
+                                <?=$rsSobre['titulo']?>
+                            </h2>
+                            <br>
+                            <p>
+                                <?=$rsSobre['texto']?>    
+                            </p>
+                        </div>
+
+                    </div>
+            <?php
+                $counter = 1;
+                } elseif($rsSobre['status'] && $counter === 1) { ?>
+                    <div class="info_sobre"> 
+                        <!-- Texto da sobre -->
+                        <div class="descricao_sobre">
+                            <p class="titulo_sobre">
+                                <?=$rsSobre['titulo']?>
+                            </p>
+                            <br>
+                            <p class="titulo_sobre">
+                                <?=$rsSobre['texto']?>    
+                            </p>
+                        </div>
+                        
+                        <!-- Imagem da sobre -->
+                        <div class="foto_sobre">
+                            <img src="cms/db/uploads/<?=$rsSobre['imagem']?>" class="responsive_img" alt="Pizzaiolo Ricardo">
+                        </div>
+                    </div>
+            <?php
+                $counter = 0;
+            }
+        } ?>
+
+        
 
         <!-- Redes sociais -->
         <?php
             if (!file_exists(include_once("./include/redes_sociais.php")))
                 include_once("./include/redes_sociais.php");
         ?>
-
-        <div class="info_sobre">
-            <div class="foto_sobre">
-                <img alt="Pizza" title="Pizza" src="img/pizza_sobre2.jpg">
-            </div>
-            <div class="descricao_sobre">
-                <h2 class="titulo_sobre">
-                    UM NOVO CONCEITO DE PIZZA
-                </h2>
-                <p class="texto_sobre">
-                    Não é Crepe, Panqueca, Cone, tampouco Taco. É Pizza Frajola's! Massa Extra Fina e crocante,
-                    a qual é recheada com os mais variados e saborosos ingredientes.
-                    São mais de 70 sabores de Pizzas (salgadas, doces e Light)
-                    a escolha dos clientes.
-                </p>
-                <br>
-                <p class="texto_sobre">
-                    Na Pizza Frajola's tudo é pensado para que você tenha a melhor e mais espetacular experiência ao saborear uma Pizza prática, barata, diferente, crocante e muito saborosa. Para isso, somos criteriosos na escolha dos ingredientes e na apresentação de nossas Pizzas, as quais são embaladas individualmente para facilitar a degustação. 
-                </p>
-            </div>
-        </div>
     </div>
 
     <!-- Rodapé -->
